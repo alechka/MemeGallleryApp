@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MemeGallery — Search memes & images on your Windows desktop</title>
+  <meta name="description" content="MemeGallery is a Windows app that uses AI image search and OCR text recognition to instantly find any meme or image in your collection." />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="MemeGallery for Windows" />
+  <meta property="og:description" content="AI image search + OCR to instantly find any meme in your collection." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.png" />
+
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#top" aria-label="MemeGallery home">
+        <span class="brand__logo" aria-hidden="true">
+          <img src="assets/logo.png" alt="" width="28" height="28" />
+        </span>
+        <span class="brand__name">MemeGallery</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#demo">Demo</a>
+        <a href="#download">Download</a>
+      </nav>
+
+      <a class="btn btn--primary btn--sm" href="https://apps.microsoft.com/store/detail/9N7H2S8QFNS6" target="_blank" rel="noopener">
+        <svg class="btn__win" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5.6 10.5 4.6v6.9H3zM10.5 12.5v6.9L3 18.4v-5.9zM11.7 4.4 21 3v8.5h-9.3zM21 12.5V21l-9.3-1.4v-7.1z"/></svg>
+        Download
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5.6 10.5 4.6v6.9H3zM10.5 12.5v6.9L3 18.4v-5.9zM11.7 4.4 21 3v8.5h-9.3zM21 12.5V21l-9.3-1.4v-7.1z"/></svg>
+            Made for Windows
+          </span>
+          <h1 class="hero__title">Find any image<br />in a heartbeat</h1>
+          <p class="hero__sub">
+            MemeGallery is the search &amp; organize tool for your image collection.
+            With OCR text recognition and AI-powered image search, you can instantly
+            find a specific meme, or any other image, right on your Windows desktop.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="https://apps.microsoft.com/store/detail/9N7H2S8QFNS6" id="heroDownload" target="_blank" rel="noopener">
+              <svg class="btn__win" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5.6 10.5 4.6v6.9H3zM10.5 12.5v6.9L3 18.4v-5.9zM11.7 4.4 21 3v8.5h-9.3zM21 12.5V21l-9.3-1.4v-7.1z"/></svg>
+              Get it from Microsoft Store
+            </a>
+            <a class="btn btn--ghost btn--lg" href="#demo">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+              Watch demo
+            </a>
+          </div>
+
+          <p class="hero__meta">For Windows 10 &amp; 11 · Just point it at your image folders</p>
+        </div>
+
+        <div class="hero__art">
+          <img
+            src="assets/shot-gallery.png"
+            alt="MemeGallery app showing a grid of memes and images"
+            class="hero__shot"
+            width="1600" height="947"
+            fetchpriority="high" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LOGOS / TRUST STRIP (optional) ============ -->
+    <section class="strip">
+      <div class="container strip__inner">
+        <div class="strip__item"><strong>AI</strong><span>describe it, find it</span></div>
+        <div class="strip__item"><strong>OCR</strong><span>reads text in images</span></div>
+        <div class="strip__item"><strong>GIF</strong><span>animated, in motion</span></div>
+        <div class="strip__item"><strong>Your folders</strong><span>your collection</span></div>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="section" id="why">
+      <div class="container container--narrow">
+        <div class="section__head">
+          <h2 class="section__title">Too late by the time you find it?</h2>
+        </div>
+        <p class="lead-quote">
+          Ever been in a group chat or a heated discussion when you wanted to reply
+          with the <em>perfect</em> meme - but had to dig through pages, chats, and
+          tons of saved images, only to realise the moment had passed?
+        </p>
+        <p class="lead-quote">
+          MemeGallery is built specifically to solve that. Just add your folders of
+          saved images and find exactly what you need, instantly.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section section--alt" id="features">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Everything you need to find the perfect meme</h2>
+          <p class="section__lead">Built for fast, effortless meme discovery.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 4a6 6 0 1 0 3.5 10.9l4.3 4.3 1.4-1.4-4.3-4.3A6 6 0 0 0 10 4m0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8"/></svg>
+            </div>
+            <h3>AI search engine</h3>
+            <p>Instantly find memes by describing them. Type “woman screaming at cat” or “muscle dog” - the app just gets it.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16v2H4zm0 4h12v2H4zm0 4h16v2H4zm0 4h10v2H4z"/></svg>
+            </div>
+            <h3>OCR text search</h3>
+            <p>Looking for a meme with a specific caption? MemeGallery reads the text inside your images and finds matches instantly.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13 3v6h6l-8 12v-6H5z"/></svg>
+            </div>
+            <h3>Lightning-fast browsing</h3>
+            <p>Smooth scrolling, quick loading, and a clean interface designed for pure meme enjoyment.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8z"/></svg>
+            </div>
+            <h3>Just add your folders</h3>
+            <p>Point MemeGallery at the folders where you keep saved images - your whole collection becomes searchable.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m6 4v8l6-4z"/></svg>
+            </div>
+            <h3>Animated GIFs &amp; more</h3>
+            <p>Supports GIF (yes, animated GIFs as well), JPEG, PNG and BMP, all in one gallery.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
+            </div>
+            <h3>Win every reply</h3>
+            <p>Crafting the perfect comeback, running a meme page, or just collecting favourites - discovery is effortless and fun.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SCREENSHOTS ============ -->
+    <section class="section" id="screenshots">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">A closer look</h2>
+          <p class="section__lead">Real searches, real results — straight from MemeGallery.</p>
+        </div>
+
+        <div class="shots">
+          <figure class="shot">
+            <img src="assets/shot-search-proveit.png" alt="Searching “prove it” across the collection" loading="lazy" width="1600" height="1049" />
+            <figcaption><strong>Caption-aware results</strong>OCR reads the text inside images, so “prove it” finds them all.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/shot-search-chillgirl.png" alt="Searching “chill girl” with AI + Text search" loading="lazy" width="1600" height="862" />
+            <figcaption><strong>Describe it, find it</strong>AI search turns “chill girl” into the exact memes you meant.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/shot-folders.png" alt="MemeGallery sidebar with your image folders" loading="lazy" width="1600" height="947" />
+            <figcaption><strong>Your folders, organized</strong>Add the folders you already use - reddit, selected, and more.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/shot-gallery.png" alt="Full meme gallery grid view" loading="lazy" width="1600" height="947" />
+            <figcaption><strong>Browse it all</strong>A fast, clean grid of your entire collection at a glance.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DEMO / VIDEO ============ -->
+    <section class="section section--alt" id="demo">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">See it in action</h2>
+          <p class="section__lead">A quick tour of MemeGallery in under two minutes.</p>
+        </div>
+
+        <div class="video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/aCALSEO-vu0?rel=0&modestbranding=1"
+            title="MemeGallery demo video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD CTA ============ -->
+    <section class="section" id="download">
+      <div class="container">
+        <div class="cta">
+          <div class="cta__glow" aria-hidden="true"></div>
+          <h2 class="cta__title">Make meme discovery effortless</h2>
+          <p class="cta__sub">Get MemeGallery on your Windows 10 or 11 desktop and stop losing the moment.</p>
+          <a class="btn btn--primary btn--lg" href="https://apps.microsoft.com/store/detail/9N7H2S8QFNS6" id="ctaDownload" target="_blank" rel="noopener">
+            <svg class="btn__win" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5.6 10.5 4.6v6.9H3zM10.5 12.5v6.9L3 18.4v-5.9zM11.7 4.4 21 3v8.5h-9.3zM21 12.5V21l-9.3-1.4v-7.1z"/></svg>
+            Get it from Microsoft Store
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__logo" aria-hidden="true">
+          <img src="assets/logo.png" alt="" width="24" height="24" />
+        </span>
+        <span class="brand__name">MemeGallery</span>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#features">Features</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#demo">Demo</a>
+        <a href="#download">Download</a>
+      </nav>
+      <p class="footer__copy">© <span id="year">2026</span> MemeGallery. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close preview">&times;</button>
+    <img class="lightbox__img" id="lightboxImg" alt="" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
