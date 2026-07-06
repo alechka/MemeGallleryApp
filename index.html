@@ -5,10 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PixFinder — Find any image by typing what you see</title>
 <meta name="description" content="PixFinder searches and organizes your entire image collection with OCR text recognition and AI visual search. 100% offline, private, free — for Windows 10+.">
+<link rel="canonical" href="https://pixfinder.app/">
 <meta property="og:title" content="PixFinder — Find any image by typing what you see">
 <meta property="og:description" content="Search your images by content, not filenames. AI visual search + OCR text search, 100% offline on Windows.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/pixfinder-main-small.jpg">
+<meta property="og:url" content="https://pixfinder.app/">
+<meta property="og:image" content="https://pixfinder.app/assets/pixfinder-main-small.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PixFinder — Find any image by typing what you see">
+<meta name="twitter:description" content="Search your images by content, not filenames. AI visual search + OCR text search, 100% offline on Windows.">
+<meta name="twitter:image" content="https://pixfinder.app/assets/pixfinder-main-small.jpg">
 <link rel="icon" type="image/png" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,6 +50,24 @@
     .pf-footer-inner { flex-direction: column !important; align-items: flex-start !important; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PixFinder",
+  "url": "https://pixfinder.app/",
+  "description": "PixFinder searches and organizes your entire image collection with OCR text recognition and AI visual search. 100% offline, private, free — for Windows 10+.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Windows 10+",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "downloadUrl": "https://apps.microsoft.com/detail/9n7h2s8qfns6",
+  "image": "https://pixfinder.app/assets/pixfinder-main-small.jpg"
+}
+</script>
 </head>
 <body>
 
@@ -96,7 +120,7 @@
 
       <!-- App screenshot -->
       <div style="position:relative; perspective:1600px;">
-        <img class="pf-hero-shot" data-zoom="1" data-full="assets/pixfinder-main.png" src="assets/pixfinder-main-small.jpg" alt="PixFinder app searching an image library" style="cursor:zoom-in; display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 30px 70px -24px rgba(20,26,45,0.34); transform: rotateY(-12deg) rotateX(3deg) rotateZ(1deg); transform-origin: left center; border-width: 1px; border-style: solid; border-color: rgba(20,26,45,0.06)">
+        <img class="pf-hero-shot" data-zoom="1" data-full="assets/pixfinder-main.png" src="assets/pixfinder-main-small.jpg" width="1000" height="606" alt="PixFinder app searching an image library" style="cursor:zoom-in; display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 30px 70px -24px rgba(20,26,45,0.34); transform: rotateY(-12deg) rotateX(3deg) rotateZ(1deg); transform-origin: left center; border-width: 1px; border-style: solid; border-color: rgba(20,26,45,0.06)">
       </div>
     </div>
 
@@ -137,12 +161,12 @@
           <span style="background:#fff; border:1px solid #E6E8EE; border-radius:100px; padding:8px 14px; font-size:14px; color:#3A4353;">"beach with white sand"</span>
         </div>
       </div>
-      <img data-zoom="1" data-full="assets/pixfinder-ai-search.png" src="assets/pixfinder-ai-search-small.jpg" alt="PixFinder AI search results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 18px 44px -22px rgba(20,26,45,0.28);">
+      <img data-zoom="1" data-full="assets/pixfinder-ai-search.png" src="assets/pixfinder-ai-search-small.jpg" width="1000" height="605" alt="PixFinder AI search results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 18px 44px -22px rgba(20,26,45,0.28);">
     </div>
 
     <!-- OCR block -->
     <div class="pf-grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;">
-      <img class="pf-swap-first" data-zoom="1" data-full="assets/pixfinder-ocr-search.png" src="assets/pixfinder-ocr-search-small.jpg" alt="PixFinder OCR text search results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 18px 44px -22px rgba(20,26,45,0.28); order:0;">
+      <img class="pf-swap-first" data-zoom="1" data-full="assets/pixfinder-ocr-search.png" src="assets/pixfinder-ocr-search-small.jpg" width="1000" height="604" alt="PixFinder OCR text search results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 18px 44px -22px rgba(20,26,45,0.28); order:0;">
       <div>
         <div style="display:inline-flex; width:48px; height:48px; border-radius:13px; background:#FFF4D6; align-items:center; justify-content:center; margin-bottom:20px;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C7960B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a1 1 0 011-1h2M20 7V5a1 1 0 00-1-1h-2M4 17v2a1 1 0 001 1h2M20 17v2a1 1 0 01-1 1h-2"></path><path d="M8 9h8M8 13h5"></path></svg>
@@ -224,12 +248,12 @@
       <h2 class="pf-h2" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:34px; letter-spacing:-0.02em; margin:0;">A closer look</h2>
     </div>
     <div class="pf-grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
-      <img data-zoom="1" data-full="assets/closer-full-interface.png" src="assets/closer-full-interface-small.jpg" alt="PixFinder AI+Text search — sunset mountains" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
-      <img data-zoom="1" data-full="assets/closer-korean.png" src="assets/closer-korean-small.jpg" alt="PixFinder — Korean-language semantic search" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
-      <img data-zoom="1" data-full="assets/closer-cat-meme.png" src="assets/closer-cat-meme-small.jpg" alt="PixFinder — cat meme text search" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
-      <img data-zoom="1" data-full="assets/closer-chill-girl.png" src="assets/closer-chill-girl-small.jpg" alt="PixFinder — 'ran into problem' BSOD text search" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
-      <img data-zoom="1" data-full="assets/closer-full-interface-dark.png" src="assets/closer-full-interface-dark-small.jpg" alt="PixFinder dark mode — mixed library results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
-      <img data-zoom="1" data-full="assets/closer-night-sky-dark.png" src="assets/closer-night-sky-dark-small.jpg" alt="PixFinder dark mode — night sky results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
+      <img data-zoom="1" data-full="assets/closer-full-interface.png" src="assets/closer-full-interface-small.jpg" width="1000" height="600" alt="PixFinder AI+Text search — sunset mountains" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
+      <img data-zoom="1" data-full="assets/closer-korean.png" src="assets/closer-korean-small.jpg" width="1000" height="562" alt="PixFinder — Korean-language semantic search" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
+      <img data-zoom="1" data-full="assets/closer-cat-meme.png" src="assets/closer-cat-meme-small.jpg" width="1000" height="600" alt="PixFinder — cat meme text search" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
+      <img data-zoom="1" data-full="assets/closer-chill-girl.png" src="assets/closer-chill-girl-small.jpg" width="1000" height="645" alt="PixFinder — 'ran into problem' BSOD text search" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
+      <img data-zoom="1" data-full="assets/closer-full-interface-dark.png" src="assets/closer-full-interface-dark-small.jpg" width="1000" height="600" alt="PixFinder dark mode — mixed library results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
+      <img data-zoom="1" data-full="assets/closer-night-sky-dark.png" src="assets/closer-night-sky-dark-small.jpg" width="1000" height="600" alt="PixFinder dark mode — night sky results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
     </div>
   </div>
 
