@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PixFinder — Find any image by typing what you see</title>
+<meta name="description" content="PixFinder searches and organizes your entire image collection with OCR text recognition and AI visual search. 100% offline, private, free — for Windows 10+.">
+<meta property="og:title" content="PixFinder — Find any image by typing what you see">
+<meta property="og:description" content="Search your images by content, not filenames. AI visual search + OCR text search, 100% offline on Windows.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/pixfinder-main-small.jpg">
+<link rel="icon" type="image/png" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #0F1115;
+    background: #FBFBFD;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: #FFE58A; color: #0F1115; }
+  .pf-nav-link { color: #5A6472; text-decoration: none; font-size: 15px; transition: color .15s; }
+  .pf-nav-link:hover { color: #0F1115; }
+  /* Mobile fallback — inline styles carry the desktop layout; these override on small screens */
+  @media (max-width: 760px) {
+    .pf-container { padding-left: 20px !important; padding-right: 20px !important; }
+    .pf-nav-links { display: none !important; }
+    .pf-grid-2 { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .pf-grid-3 { grid-template-columns: 1fr !important; }
+    .pf-hero { padding-top: 40px !important; padding-bottom: 32px !important; }
+    .pf-hero-h1 { font-size: 36px !important; }
+    .pf-h2 { font-size: 28px !important; }
+    .pf-h2-lg { font-size: 30px !important; }
+    .pf-hero-shot { transform: none !important; }
+    .pf-swap-first { order: 2 !important; }
+    .pf-privacy-card { padding: 32px 24px !important; }
+    .pf-cta-card { padding: 40px 20px !important; }
+    .pf-section { padding-top: 40px !important; padding-bottom: 40px !important; }
+    .pf-footer-inner { flex-direction: column !important; align-items: flex-start !important; }
+  }
+</style>
+</head>
+<body>
+
+<div style="min-height:100vh; overflow-x:clip;">
+
+  <!-- NAV -->
+  <div style="position:sticky; top:0; z-index:50; background:rgba(251,251,253,0.82); backdrop-filter:blur(12px); border-bottom:1px solid #EAECF2;">
+    <div class="pf-container" style="max-width:1180px; margin:0 auto; padding:16px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <div style="display:flex; align-items:center; gap:11px;">
+        <div style="width:34px; height:34px; border-radius:9px; background:#4353FF; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(67,83,255,0.32);">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg>
+        </div>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px; letter-spacing:-0.02em;">PixFinder</span>
+      </div>
+      <div class="pf-nav-links" style="display:flex; align-items:center; gap:30px;">
+        <a class="pf-nav-link" href="#features">Features</a>
+        <a class="pf-nav-link" href="#how">How it works</a>
+        <a class="pf-nav-link" href="#privacy">Privacy</a>
+        <a class="pf-nav-link" href="#demo">Demo</a>
+      </div>
+      <a href="https://apps.microsoft.com/detail/9n7h2s8qfns6" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; background:#0F1115; color:#fff; padding:10px 18px; border-radius:10px; font-size:14px; font-weight:600; text-decoration:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M3 5.6L10.2 4.6V11.4H3V5.6ZM11.2 4.4L21 3V11.4H11.2V4.4ZM3 12.4H10.2V19.2L3 18.2V12.4ZM11.2 12.4H21V21L11.2 19.6V12.4Z"></path></svg>
+        Download
+      </a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="position:relative; background:radial-gradient(1200px 500px at 70% -5%, #EEF0FF 0%, rgba(238,240,255,0) 60%), #FBFBFD;">
+    <div class="pf-container pf-hero pf-grid-2" style="max-width:1180px; margin:0 auto; padding:72px 32px 48px; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;">
+      <div>
+        <div style="display:inline-flex; align-items:center; gap:8px; background:#EEF0FF; color:#4353FF; padding:6px 13px; border-radius:100px; font-size:13px; font-weight:600; margin-bottom:22px;">
+          <span style="width:6px; height:6px; border-radius:50%; background:#4353FF;"></span>
+          100% offline · AI + OCR · Windows 10+
+        </div>
+        <h1 class="pf-hero-h1" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:56px; line-height:1.04; letter-spacing:-0.03em; margin:0 0 20px; text-wrap:balance;">
+          Find any image by typing what you <span style="background:linear-gradient(transparent 62%, #FFE58A 62%);">see.</span>
+        </h1>
+        <p style="font-size:19px; line-height:1.55; color:#4A5361; max-width:480px; margin:0 0 32px;">
+          PixFinder searches and organizes your entire image collection with OCR text recognition and AI visual search. A meme, a receipt, or that screenshot from three years ago — without remembering the filename.
+        </p>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+          <a href="https://apps.microsoft.com/detail/9n7h2s8qfns6" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; background:#4353FF; color:#fff; padding:15px 26px; border-radius:12px; font-size:16px; font-weight:600; text-decoration:none; box-shadow:0 8px 24px rgba(67,83,255,0.32);">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M3 5.6L10.2 4.6V11.4H3V5.6ZM11.2 4.4L21 3V11.4H11.2V4.4ZM3 12.4H10.2V19.2L3 18.2V12.4ZM11.2 12.4H21V21L11.2 19.6V12.4Z"></path></svg>
+            Download for Windows
+          </a>
+          <span style="font-size:14px; color:#8A93A2;">Free · No account</span>
+        </div>
+      </div>
+
+      <!-- App screenshot -->
+      <div style="position:relative; perspective:1600px;">
+        <img class="pf-hero-shot" data-zoom="1" data-full="assets/pixfinder-main.png" src="assets/pixfinder-main-small.jpg" alt="PixFinder app searching an image library" style="cursor:zoom-in; display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 30px 70px -24px rgba(20,26,45,0.34); transform: rotateY(-12deg) rotateX(3deg) rotateZ(1deg); transform-origin: left center; border-width: 1px; border-style: solid; border-color: rgba(20,26,45,0.06)">
+      </div>
+    </div>
+
+    <!-- trust strip -->
+    <div class="pf-container" style="max-width:1180px; margin:0 auto; padding:8px 32px 48px;">
+      <div style="display:flex; gap:36px; flex-wrap:wrap; align-items:center; padding-top:32px; border-top:1px solid #EAECF2;">
+        <span style="font-size:13px; color:#9AA2AF; font-weight:600;">BUILT FOR</span>
+        <span style="font-size:15px; color:#5A6472;">Photo Archive</span>
+        <span style="font-size:15px; color:#5A6472;">Screenshots</span>
+        <span style="font-size:15px; color:#5A6472;">Receipts &amp; Invoices</span>
+        <span style="font-size:15px; color:#5A6472;">Memes</span>
+        <span style="font-size:15px; color:#5A6472;">Lecture slides</span>
+        <span style="font-size:15px; color:#5A6472;">Scanned documents</span>
+        <span style="font-size:15px; color:#5A6472;">Design mockups</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES: two big alternating blocks -->
+  <div id="features" class="pf-container" style="max-width:1180px; margin:0 auto; padding:32px 32px 40px;">
+    <div style="text-align:center; margin-bottom:56px;">
+      <div style="font-size:14px; font-weight:700; color:#4353FF; letter-spacing:0.08em; margin-bottom:12px;">WAYS TO SEARCH IMAGES</div>
+      <h2 class="pf-h2-lg" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:40px; letter-spacing:-0.02em; margin:0;">It understands content, not filenames</h2>
+    </div>
+
+    <!-- AI block -->
+    <div class="pf-grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; margin-bottom:64px;">
+      <div>
+        <div style="display:inline-flex; width:48px; height:48px; border-radius:13px; background:#EEF0FF; align-items:center; justify-content:center; margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4353FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9.5 13.9 11.4 12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3z"></path><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z"></path></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; letter-spacing:-0.02em; margin:0 0 14px;">AI Vision Search</h3>
+        <p style="font-size:17px; line-height:1.6; color:#4A5361; margin:0 0 20px;">
+          Instantly find images by describing them. Type <em style="font-style:normal; font-weight:600; color:#0F1115;">"beach with white sand",</em> <em style="font-style:normal; font-weight:600; color:#0F1115;">"blue sneaker mockup,"</em> or <em style="font-style:normal; font-weight:600; color:#0F1115;">"boarding pass"</em> and get the photo, design, or travel doc.
+        </p>
+        <div style="display:flex; gap:9px; flex-wrap:wrap;">
+          <span style="background:#fff; border:1px solid #E6E8EE; border-radius:100px; padding:8px 14px; font-size:14px; color:#3A4353;">"woman screaming at cat"</span>
+          <span style="background:#fff; border:1px solid #E6E8EE; border-radius:100px; padding:8px 14px; font-size:14px; color:#3A4353;">"beach with white sand"</span>
+        </div>
+      </div>
+      <img data-zoom="1" data-full="assets/pixfinder-ai-search.png" src="assets/pixfinder-ai-search-small.jpg" alt="PixFinder AI search results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 18px 44px -22px rgba(20,26,45,0.28);">
+    </div>
+
+    <!-- OCR block -->
+    <div class="pf-grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;">
+      <img class="pf-swap-first" data-zoom="1" data-full="assets/pixfinder-ocr-search.png" src="assets/pixfinder-ocr-search-small.jpg" alt="PixFinder OCR text search results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 18px 44px -22px rgba(20,26,45,0.28); order:0;">
+      <div>
+        <div style="display:inline-flex; width:48px; height:48px; border-radius:13px; background:#FFF4D6; align-items:center; justify-content:center; margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C7960B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a1 1 0 011-1h2M20 7V5a1 1 0 00-1-1h-2M4 17v2a1 1 0 001 1h2M20 17v2a1 1 0 01-1 1h-2"></path><path d="M8 9h8M8 13h5"></path></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; letter-spacing:-0.02em; margin:0 0 14px;">OCR Text Search</h3>
+        <p style="font-size:17px; line-height:1.6; color:#4A5361; margin:0 0 20px;">
+          Search any image by the text it contains: invoices, receipts, contracts, business cards, screenshots, whiteboard captures, serial numbers, and scanned documents. PixFinder indexes the text so you retrieve it in seconds.
+        </p>
+        <div style="display:flex; gap:9px; flex-wrap:wrap;">
+          <span style="background:#fff; border:1px solid #E6E8EE; border-radius:100px; padding:8px 14px; font-size:14px; color:#3A4353;">"error code 0x80070"</span>
+          <span style="background:#fff; border:1px solid #E6E8EE; border-radius:100px; padding:8px 14px; font-size:14px; color:#3A4353;">"invoice #4471"</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE GRID (3) -->
+  <div class="pf-container" style="max-width:1180px; margin:0 auto; padding:40px 32px 20px;">
+    <div class="pf-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+      <div style="background:#fff; border:1px solid #EAECF2; border-radius:18px; padding:30px;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4353FF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"></path></svg>
+        <h4 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; margin:16px 0 8px;">Multilingual, Offline</h4>
+        <p style="font-size:14.5px; line-height:1.55; color:#5A6472; margin:0;">No cloud, no translation servers. Language models run locally, so your Italian photos, Japanese chats, and English screenshots are all searchable privately.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #EAECF2; border-radius:18px; padding:30px;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4353FF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12L13 2z"></path></svg>
+        <h4 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; margin:16px 0 8px;">Lightning-Fast Browsing</h4>
+        <p style="font-size:14.5px; line-height:1.55; color:#5A6472; margin:0;">Smooth scrolling, quick loading, and a Windows-native look and feel. Built for huge libraries — 10,000+ images load without stutter.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #EAECF2; border-radius:18px; padding:30px;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4353FF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        <h4 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; margin:16px 0 8px;">Private by Design</h4>
+        <p style="font-size:14.5px; line-height:1.55; color:#5A6472; margin:0;">Everything runs locally on your Windows PC. No cloud upload, no account, no tracking — the 100% offline approach you expect from a local search tool.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div id="how" class="pf-container pf-section" style="max-width:1180px; margin:0 auto; padding:64px 32px;">
+    <div style="text-align:center; margin-bottom:48px;">
+      <div style="font-size:14px; font-weight:700; color:#4353FF; letter-spacing:0.08em; margin-bottom:12px;">HOW IT WORKS</div>
+      <h2 class="pf-h2-lg" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:40px; letter-spacing:-0.02em; margin:0;">Point it at your folders once</h2>
+    </div>
+    <div class="pf-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+      <div style="text-align:center;">
+        <div style="width:56px; height:56px; margin:0 auto 18px; border-radius:15px; background:#4353FF; color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:22px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(67,83,255,0.32);">1</div>
+        <h4 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; margin:0 0 8px;">Add your folders</h4>
+        <p style="font-size:15px; line-height:1.55; color:#5A6472; margin:0; max-width:280px; margin-left:auto; margin-right:auto;">Downloads, Desktop, WhatsApp, Slack — point PixFinder at wherever your images pile up.</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:56px; height:56px; margin:0 auto 18px; border-radius:15px; background:#4353FF; color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:22px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(67,83,255,0.32);">2</div>
+        <h4 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; margin:0 0 8px;">It indexes locally</h4>
+        <p style="font-size:15px; line-height:1.55; color:#5A6472; margin:0; max-width:280px; margin-left:auto; margin-right:auto;">AI and OCR models run on your PC to understand every image and read its text. Nothing is uploaded.</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:56px; height:56px; margin:0 auto 18px; border-radius:15px; background:#4353FF; color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:22px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(67,83,255,0.32);">3</div>
+        <h4 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; margin:0 0 8px;">Type what you see</h4>
+        <p style="font-size:15px; line-height:1.55; color:#5A6472; margin:0; max-width:280px; margin-left:auto; margin-right:auto;">Describe the image or the text inside it and get results in seconds — no filename required.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMO VIDEO -->
+  <div id="demo" style="background:#0B0D12; color:#fff;">
+    <div class="pf-container pf-section" style="max-width:1180px; margin:0 auto; padding:80px 32px;">
+      <div style="text-align:center; margin-bottom:40px;">
+        <div style="font-size:14px; font-weight:700; color:#A8B2FF; letter-spacing:0.08em; margin-bottom:12px;">SEE IT IN ACTION</div>
+        <h2 class="pf-h2-lg" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:40px; letter-spacing:-0.02em; margin:0;">From "where did I save that?" to found</h2>
+      </div>
+      <div style="position:relative; width:100%; padding-top:56.25%; border-radius:20px; overflow:hidden; box-shadow:0 40px 90px -30px rgba(0,0,0,0.6); border:1px solid #23262E;">
+        <iframe src="https://www.youtube.com/embed/aCALSEO-vu0" title="PixFinder demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute; inset:0; width:100%; height:100%; border:0;"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="pf-container" style="max-width:1180px; margin:0 auto; padding:72px 32px 40px;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <h2 class="pf-h2" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:34px; letter-spacing:-0.02em; margin:0;">A closer look</h2>
+    </div>
+    <div class="pf-grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+      <img data-zoom="1" data-full="assets/closer-full-interface.png" src="assets/closer-full-interface-small.jpg" alt="PixFinder AI+Text search — sunset mountains" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
+      <img data-zoom="1" data-full="assets/closer-korean.png" src="assets/closer-korean-small.jpg" alt="PixFinder — Korean-language semantic search" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
+      <img data-zoom="1" data-full="assets/closer-cat-meme.png" src="assets/closer-cat-meme-small.jpg" alt="PixFinder — cat meme text search" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
+      <img data-zoom="1" data-full="assets/closer-chill-girl.png" src="assets/closer-chill-girl-small.jpg" alt="PixFinder — 'ran into problem' BSOD text search" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
+      <img data-zoom="1" data-full="assets/closer-full-interface-dark.png" src="assets/closer-full-interface-dark-small.jpg" alt="PixFinder dark mode — mixed library results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
+      <img data-zoom="1" data-full="assets/closer-night-sky-dark.png" src="assets/closer-night-sky-dark-small.jpg" alt="PixFinder dark mode — night sky results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 14px 36px -20px rgba(20,26,45,0.30);">
+    </div>
+  </div>
+
+  <!-- PRIVACY CALLOUT -->
+  <div id="privacy" class="pf-container" style="max-width:1180px; margin:0 auto; padding:48px 32px;">
+    <div class="pf-privacy-card pf-grid-2" style="background:linear-gradient(135deg, #4353FF, #2C39C4); border-radius:26px; padding:56px; display:grid; grid-template-columns:1.3fr 1fr; gap:40px; align-items:center; color:#fff; overflow:hidden; position:relative;">
+      <div>
+        <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.16); padding:6px 13px; border-radius:100px; font-size:13px; font-weight:600; margin-bottom:20px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 018 0v3"></path></svg>
+          PRIVACY
+        </div>
+        <h2 class="pf-h2" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:38px; line-height:1.1; letter-spacing:-0.02em; margin:0 0 16px;">Your images never leave your PC</h2>
+        <p style="font-size:17px; line-height:1.6; opacity:0.92; margin:0; max-width:440px;">No cloud upload. No account. No tracking. Every model runs locally on Windows, so your family photos, work screenshots, and private documents stay exactly where they are.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="background:rgba(255,255,255,0.12); border-radius:14px; padding:16px 18px; font-size:15px; font-weight:600; display:flex; align-items:center; gap:11px;"><span style="font-size:18px;">✓</span> No cloud upload, ever</div>
+        <div style="background:rgba(255,255,255,0.12); border-radius:14px; padding:16px 18px; font-size:15px; font-weight:600; display:flex; align-items:center; gap:11px;"><span style="font-size:18px;">✓</span> No account required</div>
+        <div style="background:rgba(255,255,255,0.12); border-radius:14px; padding:16px 18px; font-size:15px; font-weight:600; display:flex; align-items:center; gap:11px;"><span style="font-size:18px;">✓</span> Zero telemetry or tracking</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMATS + REQUIREMENTS -->
+  <div class="pf-container" style="max-width:1180px; margin:0 auto; padding:32px 32px 40px;">
+    <div class="pf-grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+      <div style="background:#fff; border:1px solid #EAECF2; border-radius:18px; padding:32px;">
+        <h4 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; margin:0 0 16px;">Supported formats</h4>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <span style="background:#EEF0FF; color:#4353FF; border-radius:9px; padding:8px 14px; font-size:14px; font-weight:600;">JPEG</span>
+          <span style="background:#EEF0FF; color:#4353FF; border-radius:9px; padding:8px 14px; font-size:14px; font-weight:600;">PNG</span>
+          <span style="background:#EEF0FF; color:#4353FF; border-radius:9px; padding:8px 14px; font-size:14px; font-weight:600;">GIF <span style="font-weight:400; opacity:0.7;">(stays animated)</span></span>
+          <span style="background:#EEF0FF; color:#4353FF; border-radius:9px; padding:8px 14px; font-size:14px; font-weight:600;">WebP</span>
+          <span style="background:#EEF0FF; color:#4353FF; border-radius:9px; padding:8px 14px; font-size:14px; font-weight:600;">BMP</span>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid #EAECF2; border-radius:18px; padding:32px;">
+        <h4 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; margin:0 0 16px;">System requirements</h4>
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:15px; color:#5A6472;">
+          <div style="display:flex; justify-content:space-between; border-bottom:1px solid #F0F1F5; padding-bottom:8px;"><span>Operating system</span><span style="color:#0F1115; font-weight:600;">Windows 10 or higher</span></div>
+          <div style="display:flex; justify-content:space-between;"><span>Internet</span><span style="color:#0F1115; font-weight:600;">Not required</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOWNLOAD CTA -->
+  <div id="download" class="pf-container" style="max-width:1180px; margin:0 auto; padding:56px 32px 88px;">
+    <div class="pf-cta-card" style="text-align:center; background:#fff; border:1px solid #EAECF2; border-radius:26px; padding:64px 32px; box-shadow:0 24px 60px -34px rgba(20,26,45,0.2);">
+      <h2 class="pf-h2-lg" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:44px; letter-spacing:-0.03em; margin:0 0 16px;">Make image discovery effortless</h2>
+      <p style="font-size:18px; color:#5A6472; margin:0 auto 32px; max-width:520px;">Download PixFinder free and search your entire image collection by typing what you see.</p>
+      <a href="https://apps.microsoft.com/detail/9n7h2s8qfns6" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:11px; background:#4353FF; color:#fff; padding:17px 32px; border-radius:14px; font-size:17px; font-weight:600; text-decoration:none; box-shadow:0 12px 30px rgba(67,83,255,0.32);">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="#fff"><path d="M3 5.6L10.2 4.6V11.4H3V5.6ZM11.2 4.4L21 3V11.4H11.2V4.4ZM3 12.4H10.2V19.2L3 18.2V12.4ZM11.2 12.4H21V21L11.2 19.6V12.4Z"></path></svg>
+        Download for Windows
+      </a>
+      <div style="font-size:14px; color:#9AA2AF; margin-top:16px;">Free · No account · Works offline · Windows 10+</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="border-top:1px solid #EAECF2; background:#fff;">
+    <div class="pf-container pf-footer-inner" style="max-width:1180px; margin:0 auto; padding:36px 32px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="width:28px; height:28px; border-radius:8px; background:#4353FF; display:flex; align-items:center; justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg>
+        </div>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:17px;">PixFinder</span>
+      </div>
+      <div style="display:flex; gap:26px;">
+        <a class="pf-nav-link" href="#features">Features</a>
+        <a class="pf-nav-link" href="#privacy">Privacy</a>
+        <a class="pf-nav-link" href="https://apps.microsoft.com/detail/9n7h2s8qfns6" target="_blank" rel="noopener">Download</a>
+        <a class="pf-nav-link" href="https://github.com/alechka/MemeGallleryApp/issues" target="_blank" rel="noopener">Support</a>
+      </div>
+      <span style="font-size:13px; color:#9AA2AF;">© 2026 PixFinder · Made for Windows</span>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="pf-lightbox" style="display:none; position:fixed; inset:0; z-index:200; background:rgba(11,13,18,0.86); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:40px; cursor:zoom-out;">
+    <img id="pf-lightbox-img" src="" alt="" style="max-width: 100%; max-height: 100%; border-radius: 14px; box-shadow: 0 40px 100px -20px rgba(0,0,0,0.7); cursor: default">
+    <button id="pf-lightbox-close" aria-label="Close" style="position:fixed; top:24px; right:28px; width:44px; height:44px; border-radius:50%; border:none; background:rgba(255,255,255,0.14); color:#fff; font-size:24px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;">×</button>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var box = document.getElementById("pf-lightbox");
+  var boxImg = document.getElementById("pf-lightbox-img");
+
+  function open(img) {
+    boxImg.src = img.getAttribute("data-full") || img.getAttribute("src");
+    boxImg.alt = img.getAttribute("alt") || "";
+    box.style.display = "flex";
+  }
+  function close() {
+    box.style.display = "none";
+    boxImg.src = "";
+  }
+
+  document.addEventListener("click", function (e) {
+    var img = e.target.closest && e.target.closest("img[data-zoom]");
+    if (img) open(img);
+  });
+  box.addEventListener("click", function (e) {
+    if (e.target !== boxImg) close();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") close();
+  });
+})();
+</script>
+</body>
+</html>
