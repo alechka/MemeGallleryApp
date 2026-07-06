@@ -1,3 +1,3 @@
-# MemeGallery — Landing Page
+# PixFinder — Landing Page
 
-Landing page for **MemeGallery**, a Windows desktop app for searching memes and images
+Landing page for **PixFinder**, a Windows desktop app for searching memes and images
