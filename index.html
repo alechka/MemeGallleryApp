@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PixFinder — Find any image by typing what you see</title>
-<meta name="description" content="PixFinder searches and organizes your entire image collection with OCR text recognition and AI visual search. 100% offline, private, free — for Windows 10+.">
+<meta name="description" content="PixFinder searches and organizes your entire image collection with OCR text recognition, AI visual search and similar image search. 100% offline, private, free — for Windows 10+.">
 <link rel="canonical" href="https://pixfinder.app/">
 <meta property="og:title" content="PixFinder — Find any image by typing what you see">
-<meta property="og:description" content="Search your images by content, not filenames. AI visual search + OCR text search, 100% offline on Windows.">
+<meta property="og:description" content="Search your images by content, not filenames. AI visual search, OCR text search + similar image search, 100% offline on Windows.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pixfinder.app/">
 <meta property="og:image" content="https://pixfinder.app/assets/pixfinder-main-small.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PixFinder — Find any image by typing what you see">
-<meta name="twitter:description" content="Search your images by content, not filenames. AI visual search + OCR text search, 100% offline on Windows.">
+<meta name="twitter:description" content="Search your images by content, not filenames. AI visual search, OCR text search + similar image search, 100% offline on Windows.">
 <meta name="twitter:image" content="https://pixfinder.app/assets/pixfinder-main-small.jpg">
 <link rel="icon" type="image/png" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
@@ -56,7 +56,7 @@
   "@type": "SoftwareApplication",
   "name": "PixFinder",
   "url": "https://pixfinder.app/",
-  "description": "PixFinder searches and organizes your entire image collection with OCR text recognition and AI visual search. 100% offline, private, free — for Windows 10+.",
+  "description": "PixFinder searches and organizes your entire image collection with OCR text recognition, AI visual search and similar image search. 100% offline, private, free — for Windows 10+.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Windows 10+",
   "offers": {
@@ -122,7 +122,7 @@
           Find any image by typing what you see
         </h1>
         <p style="font-size:19px; line-height:1.55; color:#4A5361; max-width:480px; margin:0 0 32px;">
-          PixFinder searches and organizes your entire image collection with OCR text recognition and AI visual search. A meme, a receipt, or that screenshot from three years ago — without remembering the filename.
+          PixFinder is the search and organize tool for your image collection. With OCR text recognition, AI-powered visual search and similar picture search you can find a meme, a family photo, a receipt, or that screenshot from three years ago without remembering the filename.
         </p>
         <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
           <a href="https://apps.microsoft.com/detail/9n7h2s8qfns6" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; background:#00A3FF; color:#fff; padding:15px 26px; border-radius:12px; font-size:16px; font-weight:600; text-decoration:none; box-shadow:0 8px 24px rgba(0,163,255,0.32);">
@@ -180,7 +180,7 @@
     </div>
 
     <!-- OCR block -->
-    <div class="pf-grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;">
+    <div class="pf-grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; margin-bottom:64px;">
       <img class="pf-swap-first" data-zoom="1" data-full="assets/pixfinder-ocr-search.png" src="assets/pixfinder-ocr-search-small.jpg" width="1000" height="604" alt="PixFinder OCR text search results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 18px 44px -22px rgba(20,26,45,0.28); order:0;">
       <div>
         <div style="display:inline-flex; width:48px; height:48px; border-radius:13px; background:#E1F4FF; align-items:center; justify-content:center; margin-bottom:20px;">
@@ -195,6 +195,25 @@
           <span style="background:#fff; border:1px solid #E6E8EE; border-radius:100px; padding:8px 14px; font-size:14px; color:#3A4353;">"invoice #4471"</span>
         </div>
       </div>
+    </div>
+
+    <!-- SIMILAR IMAGE block -->
+    <div class="pf-grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;">
+      <div>
+        <div style="display:inline-flex; width:48px; height:48px; border-radius:13px; background:#E1F4FF; align-items:center; justify-content:center; margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00A3FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><path d="M17.5 14.5v6M14.5 17.5h6"></path></svg>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; letter-spacing:-0.02em; margin:0 0 14px;">Similar Image Search</h3>
+        <p style="font-size:17px; line-height:1.6; color:#4A5361; margin:0 0 20px;">
+          Found one image you like? Get every image like that. Perfect for tracking down duplicates and near-duplicates, gathering all the shots from the same moment or person, or finding other versions of a meme, mockup, or screenshot scattered across your folders.
+        </p>
+        <div style="display:flex; gap:9px; flex-wrap:wrap;">
+          <span style="background:#fff; border:1px solid #E6E8EE; border-radius:100px; padding:8px 14px; font-size:14px; color:#3A4353;">Find duplicates</span>
+          <span style="background:#fff; border:1px solid #E6E8EE; border-radius:100px; padding:8px 14px; font-size:14px; color:#3A4353;">Same moment</span>
+          <span style="background:#fff; border:1px solid #E6E8EE; border-radius:100px; padding:8px 14px; font-size:14px; color:#3A4353;">Other versions</span>
+        </div>
+      </div>
+      <img data-zoom="1" data-full="assets/pixfinder-similar-search.png" src="assets/pixfinder-similar-search-small.jpg" width="1000" height="608" alt="PixFinder similar image search results" style="cursor:zoom-in; display:block; width:100%; height:auto; border-radius:4px; border:1px solid #E6E8EE; box-shadow:0 18px 44px -22px rgba(20,26,45,0.28);">
     </div>
   </div>
 
