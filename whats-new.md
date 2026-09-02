@@ -15,9 +15,24 @@ permalink: /whats-new/
   </section>
 
   <section class="pf-container" style="max-width:900px; margin:0 auto; padding:64px 32px 88px;">
+    {% assign releases = site.releases | sort_natural: 'version' | reverse %}
+    {% assign latest_release = releases.first %}
+    <article style="background:#fff; border:1px solid #EAECF2; border-radius:20px; padding:36px; box-shadow:0 18px 44px -30px rgba(20,26,45,.22); color:#4A5361; font-size:17px; line-height:1.65; margin-bottom:44px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:24px;">
+        <div>
+          <span style="display:block; color:#00A3FF; font-size:13px; font-weight:700; letter-spacing:.06em; margin-bottom:7px;">LATEST RELEASE</span>
+          <h2 style="font-family:'Space Grotesk',sans-serif; font-size:30px; letter-spacing:-.02em; color:#0F1115; margin:0;">Version {{ latest_release.version }}</h2>
+        </div>
+        <a class="pf-nav-link" href="{{ latest_release.url | relative_url }}">View release →</a>
+      </div>
+      <div class="pf-release-content">
+        {{ latest_release.content | markdownify }}
+      </div>
+    </article>
+
+    <h2 style="font-family:'Space Grotesk',sans-serif; font-size:24px; letter-spacing:-.02em; margin:0 0 18px;">Previous releases</h2>
     <div style="display:grid; gap:16px;">
-      {% assign releases = site.releases | sort_natural: 'version' | reverse %}
-      {% for release in releases %}
+      {% for release in releases offset: 1 %}
       <a href="{{ release.url | relative_url }}" style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:26px 28px; color:inherit; text-decoration:none; background:#fff; border:1px solid #EAECF2; border-radius:16px; box-shadow:0 12px 30px -26px rgba(20,26,45,.28);">
         <div>
           <span style="display:block; color:#00A3FF; font-size:13px; font-weight:700; letter-spacing:.06em; margin-bottom:7px;">RELEASE</span>
@@ -29,3 +44,10 @@ permalink: /whats-new/
     </div>
   </section>
 </main>
+
+<style>
+  .pf-release-content h2 { color:#0F1115; font-family:'Space Grotesk',sans-serif; font-size:24px; letter-spacing:-.02em; margin:0 0 14px; }
+  .pf-release-content h2:not(:first-child) { margin-top:34px; }
+  .pf-release-content ul { margin:0; padding-left:22px; }
+  .pf-release-content li + li { margin-top:8px; }
+</style>
