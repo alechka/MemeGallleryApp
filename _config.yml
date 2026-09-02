@@ -1,0 +1,8 @@
+title: PixFinder
+description: PixFinder searches and organizes your entire image collection privately, offline, and free.
+url: "https://pixfinder.app"
+markdown: kramdown
+collections:
+  releases:
+    output: true
+    permalink: /whats-new/:name/

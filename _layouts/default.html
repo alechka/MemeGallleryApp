@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description | default: site.description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ '/assets/pixfinder-main-small.jpg' | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description }}">
+<meta name="twitter:image" content="{{ '/assets/pixfinder-main-small.jpg' | absolute_url }}">
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
+<link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/favicon.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/favicon-180.png' | relative_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, sans-serif; color: #0F1115; background: #FBFBFD; -webkit-font-smoothing: antialiased; }
+  ::selection { background: #FFD3C2; color: #0F1115; }
+  .pf-nav-link { color: #5A6472; text-decoration: none; font-size: 15px; transition: color .15s; }
+  .pf-nav-link:hover { color: #0F1115; }
+  @media (max-width: 760px) { .pf-container { padding-left: 20px !important; padding-right: 20px !important; } .pf-nav-links { display: none !important; } .pf-grid-2 { grid-template-columns: 1fr !important; gap: 32px !important; } .pf-grid-3 { grid-template-columns: 1fr !important; } .pf-hero { padding-top: 40px !important; padding-bottom: 32px !important; } .pf-hero-h1 { font-size: 36px !important; } .pf-h2 { font-size: 28px !important; } .pf-h2-lg { font-size: 30px !important; } .pf-hero-shot { transform: none !important; } .pf-swap-first { order: 2 !important; } .pf-privacy-card { padding: 32px 24px !important; } .pf-cta-card { padding: 40px 20px !important; } .pf-section { padding-top: 40px !important; padding-bottom: 40px !important; } .pf-footer-inner { flex-direction: column !important; align-items: flex-start !important; } }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MK51K74FCZ"></script>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-MK51K74FCZ');</script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xjes7yqum1");</script>
+</head>
+<body>
+<div style="min-height:100vh; overflow-x:clip;">
+  {% include header.html %}
+  {{ content }}
+  {% include footer.html %}
+</div>
+</body>
+</html>

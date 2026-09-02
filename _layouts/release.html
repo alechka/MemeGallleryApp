@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<main>
+  <section style="background:radial-gradient(900px 360px at 65% -5%, #E1F4FF 0%, rgba(225,244,255,0) 65%), #FBFBFD; border-bottom:1px solid #EAECF2;">
+    <div class="pf-container" style="max-width:900px; margin:0 auto; padding:76px 32px 62px;">
+      <a class="pf-nav-link" href="{{ '/whats-new/' | relative_url }}" style="display:inline-flex; margin-bottom:24px;">← All updates</a>
+      <p style="margin:0 0 14px; color:#00A3FF; font-size:14px; font-weight:700; letter-spacing:.08em;">PIXFINDER RELEASE NOTES</p>
+      <h1 class="pf-hero-h1" style="font-family:'Space Grotesk',sans-serif; font-size:52px; line-height:1.04; letter-spacing:-.03em; margin:0;">Version {{ page.version }}</h1>
+    </div>
+  </section>
+  <article class="pf-container" style="max-width:900px; margin:0 auto; padding:56px 32px 88px;">
+    <div class="pf-release-content" style="background:#fff; border:1px solid #EAECF2; border-radius:20px; padding:36px; box-shadow:0 18px 44px -30px rgba(20,26,45,.22); color:#4A5361; font-size:17px; line-height:1.65;">
+      {{ content }}
+    </div>
+  </article>
+</main>
+<style>
+  .pf-release-content h2 { color:#0F1115; font-family:'Space Grotesk',sans-serif; font-size:24px; letter-spacing:-.02em; margin:0 0 14px; }
+  .pf-release-content h2:not(:first-child) { margin-top:34px; }
+  .pf-release-content ul { margin:0; padding-left:22px; }
+  .pf-release-content li + li { margin-top:8px; }
+</style>
