@@ -28,6 +28,26 @@
   ::selection { background: #FFD3C2; color: #0F1115; }
   .pf-nav-link { color: #5A6472; text-decoration: none; font-size: 15px; transition: color .15s; }
   .pf-nav-link:hover { color: #0F1115; }
+  .pf-hero-download { flex-wrap: nowrap; }
+  .pf-hero-download > a { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 15px 20px; border: 1px solid transparent; border-radius: 12px; font-size: 16px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: background .15s, border-color .15s; }
+  .pf-hero-download svg { flex-shrink: 0; }
+  .pf-download-store { background: #00A3FF; color: #fff; box-shadow: 0 8px 24px rgba(0,163,255,0.32); }
+  .pf-download-store:hover { background: #008FE0; }
+  .pf-hero-download > .pf-download-installer { background: #fff; color: #0F1115; border-color: #DCE1E8; }
+  .pf-hero-download > .pf-download-installer:hover { background: #F0F8FF; border-color: #00A3FF; }
+  .pf-hero-download > a:focus-visible { outline: 2px solid #00A3FF; outline-offset: 4px; }
+  @media (min-width: 761px) and (max-width: 1000px) {
+    .pf-hero-download { gap: 10px !important; }
+    .pf-hero-download > a { padding-left: 12px; padding-right: 12px; font-size: 14px; }
+  }
+  @media (max-width: 760px) {
+    .pf-hero-content { display: contents; }
+    .pf-hero-copy { order: 0; }
+    .pf-hero-copy > p { margin-bottom: 0 !important; }
+    .pf-hero-visual { order: 1; }
+    .pf-hero-download { order: 2; flex-direction: column; align-items: stretch !important; }
+    .pf-hero-download > a { width: 100%; }
+  }
   .pf-main-nav { display: flex; align-items: center; justify-content: space-between; flex: 1; gap: 24px; }
   .pf-nav-links { margin: 0 auto; }
   .pf-menu-toggle { display: none; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; border: 1px solid #EAECF2; border-radius: 10px; background: #fff; color: #0F1115; font: inherit; cursor: pointer; }

@@ -11,7 +11,8 @@ description: PixFinder searches and organizes your entire image collection with 
   <!-- HERO -->
   <div style="position:relative; background:radial-gradient(1200px 500px at 70% -5%, #E1F4FF 0%, rgba(225,244,255,0) 60%), #FBFBFD;">
     <div class="pf-container pf-hero pf-grid-2" style="max-width:1180px; margin:0 auto; padding:72px 32px 48px; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;">
-      <div>
+      <div class="pf-hero-content">
+        <div class="pf-hero-copy">
         <div style="display:inline-flex; align-items:center; gap:8px; background:#E1F4FF; color:#00A3FF; padding:6px 13px; border-radius:100px; font-size:13px; font-weight:600; margin-bottom:22px;">
           <span style="width:6px; height:6px; border-radius:50%; background:#00A3FF;"></span>
           100% Offline · AI + OCR · Windows 10+
@@ -22,17 +23,21 @@ description: PixFinder searches and organizes your entire image collection with 
         <p style="font-size:19px; line-height:1.55; color:#4A5361; max-width:480px; margin:0 0 32px;">
           PixFinder is photo search and viewer tool for your image collection. With OCR text recognition and AI-powered visual and similar picture search you can find meme, screenshot, family photo, receipt or that from three years ago without remembering the filename
         </p>
-        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
-          <a href="https://get.microsoft.com/installer/download/9N7H2S8QFNS6?referrer=appbadge&cid=site" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; background:#00A3FF; color:#fff; padding:15px 26px; border-radius:12px; font-size:16px; font-weight:600; text-decoration:none; box-shadow:0 8px 24px rgba(0,163,255,0.32);">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M3 5.6L10.2 4.6V11.4H3V5.6ZM11.2 4.4L21 3V11.4H11.2V4.4ZM3 12.4H10.2V19.2L3 18.2V12.4ZM11.2 12.4H21V21L11.2 19.6V12.4Z"></path></svg>
-            Download for Windows
+        </div>
+        <div class="pf-hero-download" style="display:flex; align-items:center; gap:14px;">
+          <a class="pf-download-store" href="https://apps.microsoft.com/detail/9n7h2s8qfns6" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff" style="flex-shrink:0;" aria-hidden="true"><path d="M3 5.6L10.2 4.6V11.4H3V5.6ZM11.2 4.4L21 3V11.4H11.2V4.4ZM3 12.4H10.2V19.2L3 18.2V12.4ZM11.2 12.4H21V21L11.2 19.6V12.4Z"></path></svg>
+            Microsoft Store
           </a>
-          <span style="font-size:14px; color:#8A93A2;">Free · No account</span>
+          <a class="pf-download-installer" href="https://get.microsoft.com/installer/download/9N7H2S8QFNS6?referrer=appbadge&cid=site">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4a1 1 0 001 1h12a1 1 0 001-1v-4"></path></svg>
+            Download
+          </a>
         </div>
       </div>
 
       <!-- App screenshot -->
-      <div style="position:relative; perspective:1600px;">
+      <div class="pf-hero-visual" style="position:relative; perspective:1600px;">
         <img class="pf-hero-shot" data-zoom="1" data-full="assets/pixfinder-main.png" src="assets/pixfinder-main-small.jpg" width="1000" height="561" alt="PixFinder app searching an image library" style="cursor:zoom-in; display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 30px 70px -24px rgba(20,26,45,0.34); transform: rotateY(-12deg) rotateX(3deg) rotateZ(1deg); transform-origin: left center; border-width: 1px; border-style: solid; border-color: rgba(20,26,45,0.06)">
       </div>
     </div>
