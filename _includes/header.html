@@ -4,15 +4,47 @@
       <img src="{{ '/assets/pixfinder-logo-small.png' | relative_url }}" alt="PixFinder logo" width="35" height="34" style="height:34px; width:auto; display:block;">
       <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px; letter-spacing:-0.02em;"><span style="color:#1A237E;">Pix</span><span style="color:#00A3FF;">Finder</span></span>
     </a>
-    <nav class="pf-nav-links" aria-label="Main navigation" style="display:flex; align-items:center; gap:30px;">
-      <a class="pf-nav-link" href="{{ '/#features' | relative_url }}">Features</a>
-      <a class="pf-nav-link" href="{{ '/#privacy' | relative_url }}">Privacy</a>
-      <a class="pf-nav-link" href="{{ '/#demo' | relative_url }}">Demo</a>
-      <a class="pf-nav-link" href="{{ '/whats-new/' | relative_url }}">What's new</a>
+    <button class="pf-menu-toggle" type="button" aria-label="Open menu" aria-controls="pf-main-nav" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
+    <nav id="pf-main-nav" class="pf-main-nav" aria-label="Main navigation">
+      <div class="pf-nav-links" style="display:flex; align-items:center; gap:30px;">
+        <a class="pf-nav-link" href="{{ '/#features' | relative_url }}">Features</a>
+        <a class="pf-nav-link" href="{{ '/#privacy' | relative_url }}">Privacy</a>
+        <a class="pf-nav-link" href="{{ '/#demo' | relative_url }}">Demo</a>
+        <a class="pf-nav-link" href="{{ '/whats-new/' | relative_url }}">What's new</a>
+      </div>
+      <a href="https://apps.microsoft.com/detail/9n7h2s8qfns6" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; background:#0F1115; color:#fff; padding:10px 18px; border-radius:10px; font-size:14px; font-weight:600; text-decoration:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M3 5.6L10.2 4.6V11.4H3V5.6ZM11.2 4.4L21 3V11.4H11.2V4.4ZM3 12.4H10.2V19.2L3 18.2V12.4ZM11.2 12.4H21V21L11.2 19.6V12.4Z"></path></svg>
+        Download
+      </a>
     </nav>
-    <a href="https://apps.microsoft.com/detail/9n7h2s8qfns6" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; background:#0F1115; color:#fff; padding:10px 18px; border-radius:10px; font-size:14px; font-weight:600; text-decoration:none;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M3 5.6L10.2 4.6V11.4H3V5.6ZM11.2 4.4L21 3V11.4H11.2V4.4ZM3 12.4H10.2V19.2L3 18.2V12.4ZM11.2 12.4H21V21L11.2 19.6V12.4Z"></path></svg>
-      Download
-    </a>
   </div>
 </header>
+<script>
+  (() => {
+    const toggle = document.querySelector('.pf-menu-toggle');
+    const nav = document.getElementById('pf-main-nav');
+    const setMenuOpen = (open) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    const closeMenu = () => setMenuOpen(false);
+    toggle.addEventListener('click', () => {
+      setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+    nav.addEventListener('click', (event) => {
+      if (event.target.closest('a')) closeMenu();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('header')) closeMenu();
+    });
+    window.matchMedia('(max-width: 760px)').addEventListener('change', closeMenu);
+  })();
+</script>
