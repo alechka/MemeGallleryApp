@@ -1,10 +1,19 @@
 ---
 layout: default
 ---
+{% assign releases = site.releases | sort_natural: 'version' | reverse %}
+{% assign latest_major = releases.first.version | split: '.' | first %}
+{% assign release_major = page.version | split: '.' | first %}
+{% assign archive_url = '/whats-new/' %}
+{% if release_major == '0' %}
+  {% assign archive_url = '/whats-new/older/' %}
+{% elsif release_major != latest_major %}
+  {% assign archive_url = '/whats-new/' | append: release_major | append: '.x/' %}
+{% endif %}
 <main>
   <section style="background:radial-gradient(900px 360px at 65% -5%, #E1F4FF 0%, rgba(225,244,255,0) 65%), #FBFBFD; border-bottom:1px solid #EAECF2;">
     <div class="pf-container" style="max-width:900px; margin:0 auto; padding:76px 32px 62px;">
-      <a class="pf-nav-link" href="{{ '/whats-new/' | relative_url }}" style="display:inline-flex; margin-bottom:24px;">← All updates</a>
+      <a class="pf-nav-link" href="{{ archive_url | relative_url }}" style="display:inline-flex; margin-bottom:24px;">← {% if release_major == '0' %}Older releases{% else %}{{ release_major }}.x releases{% endif %}</a>
       <p style="margin:0 0 14px; color:#00A3FF; font-size:14px; font-weight:700; letter-spacing:.08em;">PIXFINDER RELEASE NOTES</p>
       <h1 class="pf-hero-h1" style="font-family:'Space Grotesk',sans-serif; font-size:52px; line-height:1.04; letter-spacing:-.03em; margin:0;">Version {{ page.version }}</h1>
     </div>

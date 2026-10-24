@@ -1,0 +1,86 @@
+---
+layout: default
+---
+{% assign releases = site.releases | sort_natural: 'version' | reverse %}
+{% assign latest_release = releases.first %}
+{% assign latest_major = latest_release.version | split: '.' | first %}
+{% assign selected_major = page.release_major | default: latest_major %}
+{% assign archive_pages = site.pages | where: 'layout', 'whats-new' | sort: 'release_major' | reverse %}
+
+<main>
+  <section style="background:radial-gradient(900px 360px at 65% -5%, #E1F4FF 0%, rgba(225,244,255,0) 65%), #FBFBFD; border-bottom:1px solid #EAECF2;">
+    <div class="pf-container" style="max-width:900px; margin:0 auto; padding:88px 32px 72px; text-align:center;">
+      <p style="margin:0 0 14px; color:#00A3FF; font-size:14px; font-weight:700; letter-spacing:.08em;">PIXFINDER RELEASE NOTES</p>
+      <h1 class="pf-hero-h1" style="font-family:'Space Grotesk',sans-serif; font-size:56px; line-height:1.04; letter-spacing:-.03em; margin:0 0 18px;">What's new</h1>
+      <p style="max-width:600px; margin:0 auto; color:#5A6472; font-size:18px; line-height:1.6;">Every improvement, feature and fix in PixFinder</p>
+    </div>
+  </section>
+
+  <section class="pf-container" style="max-width:900px; margin:0 auto; padding:64px 32px 88px;">
+    {% if selected_major == latest_major %}
+    <article class="pf-latest-release" style="background:#fff; border:1px solid #EAECF2; border-radius:20px; padding:36px; box-shadow:0 18px 44px -30px rgba(20,26,45,.22); color:#4A5361; font-size:17px; line-height:1.65; margin-bottom:44px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:24px;">
+        <div>
+          <span style="display:block; color:#00A3FF; font-size:13px; font-weight:700; letter-spacing:.06em; margin-bottom:7px;">LATEST RELEASE</span>
+          <h2 style="font-family:'Space Grotesk',sans-serif; font-size:30px; letter-spacing:-.02em; color:#0F1115; margin:0;">Version {{ latest_release.version }}</h2>
+        </div>
+        <a class="pf-nav-link" href="{{ latest_release.url | relative_url }}">View release →</a>
+      </div>
+      <div class="pf-release-content">
+        {{ latest_release.content | markdownify }}
+      </div>
+    </article>
+
+    {% endif %}
+
+    <h2 id="release-list-heading" style="font-family:'Space Grotesk',sans-serif; font-size:24px; letter-spacing:-.02em; margin:0 0 18px;">{% if selected_major == latest_major %}Previous {{ selected_major }}.x releases{% elsif selected_major == 'older' %}Older releases{% else %}{{ selected_major }}.x releases{% endif %}</h2>
+    <div class="pf-release-list" aria-labelledby="release-list-heading" style="display:grid; gap:16px;">
+      {% assign release_count = 0 %}
+      {% for release in releases %}
+        {% assign release_major = release.version | split: '.' | first %}
+        {% if release_major == selected_major or selected_major == 'older' and release_major == '0' %}
+          {% if selected_major != latest_major or release.version != latest_release.version %}
+            {% assign release_count = release_count | plus: 1 %}
+      <a class="pf-release-card" href="{{ release.url | relative_url }}" style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:26px 28px; color:inherit; text-decoration:none; background:#fff; border:1px solid #EAECF2; border-radius:16px; box-shadow:0 12px 30px -26px rgba(20,26,45,.28);">
+        <div>
+          <span style="display:block; color:#00A3FF; font-size:13px; font-weight:700; letter-spacing:.06em; margin-bottom:7px;">RELEASE</span>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:23px; letter-spacing:-.02em; margin:0;">Version {{ release.version }}</h3>
+        </div>
+        <span aria-hidden="true" style="font-size:25px; color:#00A3FF;">→</span>
+      </a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% if release_count == 0 %}
+      <p style="color:#5A6472; margin:0;">No previous releases in this version yet.</p>
+      {% endif %}
+    </div>
+
+    <nav class="pf-release-nav" aria-label="Release versions">
+      <a href="{{ '/whats-new/' | relative_url }}"{% if selected_major == latest_major %} aria-current="page"{% endif %}>{{ latest_major }}.x</a>
+      {% for archive in archive_pages %}
+        {% if archive.release_major and archive.release_major != 'older' and archive.release_major != latest_major %}
+      <a href="{{ archive.url | relative_url }}"{% if selected_major == archive.release_major %} aria-current="page"{% endif %}>{{ archive.release_major }}.x</a>
+        {% endif %}
+      {% endfor %}
+      <a href="{{ '/whats-new/older/' | relative_url }}"{% if selected_major == 'older' %} aria-current="page"{% endif %}>Older</a>
+    </nav>
+  </section>
+</main>
+
+<style>
+  .pf-release-nav { display:flex; flex-wrap:wrap; gap:10px; margin-top:32px; }
+  .pf-release-nav a { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 20px; border:1px solid #DCE1E8; border-radius:12px; background:#fff; color:#4A5361; font-size:16px; font-weight:600; text-decoration:none; }
+  .pf-release-nav a:hover { background:#F0F8FF; border-color:#008FE0; }
+  .pf-release-nav a[aria-current="page"] { background:#0F1115; border-color:#0F1115; color:#fff; }
+  .pf-release-nav a:focus-visible, .pf-release-card:focus-visible, .pf-latest-release a:focus-visible { outline:2px solid #008FE0; outline-offset:4px; }
+  .pf-release-card:hover { border-color:#008FE0 !important; }
+  @media (max-width:760px) {
+    .pf-latest-release { padding:24px !important; }
+    .pf-release-card { padding:22px 20px !important; gap:16px !important; }
+  }
+  .pf-release-content h2 { color:#0F1115; font-family:'Space Grotesk',sans-serif; font-size:24px; letter-spacing:-.02em; margin:0 0 14px; }
+  .pf-release-content h2:not(:first-child) { margin-top:34px; }
+  .pf-release-content ul { margin:0; padding-left:22px; }
+  .pf-release-content li + li { margin-top:8px; }
+</style>
